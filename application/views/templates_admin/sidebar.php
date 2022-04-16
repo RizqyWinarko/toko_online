@@ -11,7 +11,7 @@
                 <div class="sidebar-brand-icon">
                 <i class="fa-solid fa-gem"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin</div>
+                <div class="sidebar-brand-text mx-3">DECO Admin</div>
             </a>
 
             <!-- Divider -->
@@ -31,7 +31,7 @@
                     <span>Data Barang</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('admin/invoices') ?>">
+                <a class="nav-link" href="<?php echo base_url('admin/invoice') ?>">
                     <i class="fas fa-fw fa-file-invoice"></i>
                     <span>Invoices</span></a>
             </li>
