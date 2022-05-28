@@ -7,7 +7,7 @@
         <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('admin/data_barang') ?>">
                 <div class="sidebar-brand-icon">
                 <i class="fa-solid fa-gem"></i>
                 </div>
@@ -20,7 +20,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('admin/dashboard_admin') ?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="fas fa-fw fa-table-list"></i>
                     <span>Dashboard</span></a>
             </li>
 
@@ -100,6 +100,15 @@
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <ul class="na navbar-nav navbar-right">
+                            <?php if($this->session->userdata('username')) { ?>
+                                <li><div>Welcome to The Deco Store <?php echo $this->session->userdata('username') ?></div></li>
+                                <li class="ml-2"><?php echo anchor('auth/logout', 'Logout') ?></li>
+                            <?php } else { ?>
+                                <li><?php echo anchor('auth/login', 'Login'); ?></li>
+
+                            <?php } ?>
 
                     
 

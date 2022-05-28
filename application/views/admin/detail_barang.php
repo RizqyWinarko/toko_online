@@ -8,11 +8,11 @@
             <div class="row">
                 <div class="col-md-4">
                 <?php 
-        if($brg->gambar==null){ ?>
-        <img src="<?php echo base_url().'/uploads/Deco Store.png' ?>" class="card-img-top " >
-        <?php }else{ ?>
-        <img src="<?php echo base_url().'/uploads/'.$brg->gambar ?>" class="card-img-top " >
-        <?php } ?>
+if($brg->gambar==null){ ?>
+  <img src="<?php echo base_url().'/uploads/Deco Store.png' ?>" class="card-img-top " >
+<?php }else{ ?>
+  <img src="<?php echo base_url().'/uploads/'.$brg->gambar ?>" class="card-img-top " >
+<?php } ?>
                 </div>
                 <div class="col-md-8">
                     <table class="table">
@@ -38,9 +38,8 @@
                         </tr>
                     </table>
 
-                    <?php echo anchor('dashboard/tambahkan_ke_keranjang/' .$brg
-                         ->id_brg, '<div class="btn btn-info btn-outline-light btn-sm">Tambahkan ke keranjang</div>') ?>
-                    <?php echo anchor('welcome/index/' .$brg
+                   
+                    <?php echo anchor('admin/data_barang/index/' .$brg
                         ->id_brg, '<div class="btn btn-danger btn-outline-warning btn-sm">Kembali</div>') ?>
                 </div>
 

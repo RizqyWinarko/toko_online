@@ -2,7 +2,12 @@
     <button class="btn btn-sm btn-success mb-3" data-toggle="modal"
      data-target="#tambah_barang" ><i class="fas fa-circle-plus fa-sm m-1"></i>Tambah Barang</button>
 
-    <table class="table table-dark table-striped">
+     <div class="card shadow mb-4">
+         <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Data Barang Yang Ada</h6>
+    </div>
+    <table class="table table-dark table-striped "width="100%" cellspacing="0">
+    
         <tr>
         <th>No</th>
         <th>Nama Barang</th>
@@ -24,7 +29,7 @@
         <td><?php echo $brg->kategori ?></td>
         <td><?php echo $brg->harga ?></td>
         <td><?php echo $brg->stok ?></td>
-        <td><div class="btn btn-success btn-sm"><i class="fas fa-magnifying-glass-plus"></i></div></td>
+        <td><?php echo anchor('admin/data_barang/detail/' .$brg->id_brg, '<div class="btn btn-success btn-sm"><i class="fas fa-magnifying-glass-plus"></i></div>') ?></td>
         <td><?php echo anchor('admin/data_barang/edit/' .$brg->id_brg, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
         <td><?php echo anchor('admin/data_barang/hapus/' .$brg->id_brg, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
         </tr>
@@ -55,7 +60,13 @@
         </div>
 <div class="form group">
             <label>Kategori</label>
-            <input type="text" name="kategori" class="form-control">
+            <select class="form-control" name="kategori">
+            <option>Laptop</option>
+            <option>Handphone</option>
+            <option>Sepedah</option>
+            <option>Elektronik</option>
+            <option>Makanan</option>
+            </select>
         </div>
 <div class="form group">
             <label>Harga</label>

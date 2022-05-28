@@ -7,7 +7,7 @@
         <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('welcome') ?>">
                 <div class="sidebar-brand-icon">
                 <i class="fa-solid fa-gem"></i>
                 </div>
@@ -19,8 +19,8 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="<?php echo base_url('welcome') ?>">
+                    <i class="fas fa-fw fa-table-list"></i>
                     <span>Dashboard</span></a>
             </li>
 
@@ -34,27 +34,27 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?php echo base_url('kategori/laptop') ?>">
                     <i class="fas fa-fw fa-laptop"></i>
                     <span>Laptop</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?php echo base_url('kategori/handphone') ?>">
                     <i class="fas fa-fw fa-mobile"></i>
                     <span>Handphone</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?php echo base_url('kategori/sepedah') ?>">
                     <i class="fas fa-fw fa-bicycle"></i>
                     <span>Sepedah</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?php echo base_url('kategori/elektronik') ?>">
                     <i class="fas fa-fw fa-bolt"></i>
                     <span>Elektronik</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?php echo base_url('kategori/makanan') ?>">
                     <i class="fas fa-fw fa-burger"></i>
                     <span>Makanan</span></a>
             </li>
@@ -137,11 +137,21 @@
                                     )  ?>
                                 </li>
                             </ul>
+
+                            <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <ul class="na navbar-nav navbar-right">
+                            <?php if($this->session->userdata('username')) { ?>
+                                <li><div>Welcome to The Deco Store <?php echo $this->session->userdata('username') ?></div></li>
+                                <li class="ml-2"><?php echo anchor('auth/logout', 'Logout') ?></li>
+                            <?php } else { ?>
+                                <li><?php echo anchor('auth/login', 'Login'); ?></li>
+
+                            <?php } ?>
+                        </ul>
                         </div>
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
-
-                    
+                        
 
                     </ul>
 

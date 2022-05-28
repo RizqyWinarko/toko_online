@@ -4,8 +4,12 @@ class Auth extends CI_controller {
 
         public function login()
         {
-        $this->form_validation->set_rules('username','Username','required');
-        $this->form_validation->set_rules('password','Password','required');
+        $this->form_validation->set_rules('username','Username','required',[
+            'required' => 'USERNAME TIDAK BOLEH KOSONG!!!'
+        ]);
+        $this->form_validation->set_rules('password','Password','required',[
+            'required' => 'PASSWORD TIDAK BOLEH KOSONG!!!' 
+        ]);
         if($this->form_validation->run() == FALSE)
         {
             $this->load->view('templates/header');
@@ -17,9 +21,9 @@ class Auth extends CI_controller {
             if($auth == FALSE)
             {
                 $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                Username atau Password Anda Salah
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true"></span>
+                Mohon Maaf, Username atau Password yang Anda Masukan Tidak Sesuai. Harap Coba lagi dengan Memasukan Username dan Password yang Sesuai
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
                 </button>
               </div>');
               redirect('auth/login');
@@ -28,14 +32,20 @@ class Auth extends CI_controller {
                 $this->session->set_userdata('role_id', $auth->role_id);
 
                 switch($auth->role_id){
-                    case 1 : redirect('admin/dasbboard_admin');
+                    case 1 : redirect('admin/dashboard_admin');
                              break;
-                    case 2 : redirect('dashboard');
+                    case 2 : redirect('welcome');
                              break;
                     default: break;
                 }
                 
             }
         }
+    }
+
+    public function logout ()
+    {
+        $this->session->sess_destroy();
+        redirect('auth/login');
     }
 }
