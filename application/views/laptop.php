@@ -10,7 +10,12 @@
 
     <?php foreach ($laptop as $brg) : ?>
 <div class="card mt-3 ml-3" style="width: 18rem;">
-  <img src="<?php echo base_url().'/uploads/'.$brg->gambar ?>" class="card-img-top " alt="...">
+<?php 
+if($brg->gambar==null){ ?>
+  <img src="<?php echo base_url().'/uploads/Deco Store.png' ?>" class="card-img-top " >
+<?php }else{ ?>
+  <img src="<?php echo base_url().'/uploads/'.$brg->gambar ?>" class="card-img-top " >
+<?php } ?>
   <div class="card-body">
     <h5 class="card-title mb-1"><?php echo $brg->nama_brg ?></h5>
     <small><?php echo $brg->keterangan ?></small><br>
